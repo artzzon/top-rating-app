@@ -1,0 +1,43 @@
+.badge {
+  display: inline-block;
+  box-sizing: border-box;
+
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.small {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.medium {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.transparent {
+  border: 1px solid var(--light-gray);
+}
+
+.red {
+  font-weight: bold;
+  background-color: #de0000;
+  color: var(--white);
+}
+
+.green {
+  font-weight: bold;
+  color: var(--green);
+  background-color: var(--light-green);
+}
+
+.gray {
+  color: var(--white);
+  background-color: #b3c0d9;
+}
+
+.primary {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
