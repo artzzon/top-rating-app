@@ -22,7 +22,7 @@ const Rating = ({
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((el, i) => {
       return (
-        <RatingIcon
+        <span
           key={i}
           className={cn(styles.star, {
             [styles.filled]: i < currentRating,
@@ -31,7 +31,14 @@ const Rating = ({
           onMouseEnter={() => changeDisplay(i + 1)}
           onMouseLeave={() => changeDisplay(rating)}
           onClick={() => onClickStar(i + 1)}
-        />
+        >
+          <RatingIcon
+            tabIndex={isEditable ? 0 : -1}
+            onKeyDown={(e: React.KeyboardEvent<SVGElement>) =>
+              isEditable && handleSpace(i + 1, e)
+            }
+          />
+        </span>
       );
     });
     setRatingArray(updatedArray);
@@ -46,6 +53,15 @@ const Rating = ({
   const onClickStar = (clickedRating: number) => {
     if (isEditable && setRating) {
       setRating(clickedRating);
+    }
+  };
+
+  const handleSpace = (
+    pressedRating: number,
+    e: React.KeyboardEvent<SVGElement>
+  ) => {
+    if (e.code === "Space" && setRating) {
+      setRating(pressedRating);
     }
   };
 
