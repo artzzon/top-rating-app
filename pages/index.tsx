@@ -11,6 +11,7 @@ import { GetStaticProps } from "next";
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   const [rating, setRating] = React.useState<number>(4);
+  console.log(firstCategory);
   return (
     <>
       {/* <HeadTag tag="h1">Главная</HeadTag>
