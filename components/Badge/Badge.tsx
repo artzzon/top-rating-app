@@ -8,7 +8,7 @@ const Badge = ({
   children,
   color = "transparent",
   href,
-  size = "medium",
+  size = "small",
   ...props
 }: BadgeProps): JSX.Element => {
   return (
