@@ -8,6 +8,8 @@ import Head from "next/head";
 import { Card } from "@/components/Card/Card";
 import HhData from "@/components/HhData/HhData";
 import { TopLevelCategory } from "@/interfaces/page.interface";
+import Advantages from "@/components/Advantages/Advantages";
+import ParagraphTag from "@/components/ParagraphTag/ParagraphTag";
 
 const TopPageComponent = ({
   firstCategory,
@@ -34,9 +36,22 @@ const TopPageComponent = ({
           hh.ru
         </Badge>
       </div>
-      {firstCategory === TopLevelCategory.Courses && (
+      {firstCategory === TopLevelCategory.Courses && page.hh && (
         <HhData {...page.hh}></HhData>
       )}
+      {page.advantages && page.advantages.length > 0 && (
+        <>
+          <HeadTag tag="h2">Преимущества</HeadTag>
+          <Advantages advantages={page.advantages} />
+        </>
+      )}
+      {page.seoText && <ParagraphTag>{page.seoText}</ParagraphTag>}
+      <HeadTag tag="h2">Получаемые навыки</HeadTag>
+      {page.tags.map((t) => (
+        <Badge key={t} color="primary">
+          {t}
+        </Badge>
+      ))}
     </div>
   );
 };
