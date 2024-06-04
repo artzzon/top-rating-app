@@ -8,13 +8,24 @@ import parse from "html-react-parser";
 import HhData from "@/components/HhData/HhData";
 import { TopLevelCategory } from "@/interfaces/page.interface";
 import Advantages from "@/components/Advantages/Advantages";
-import ParagraphTag from "@/components/ParagraphTag/ParagraphTag";
+import Sort from "@/components/Sort/Sort";
+import { SortEnum } from "@/components/Sort/Sort.props";
+import { sortReducer } from "./sort.reducer";
 
 const TopPageComponent = ({
   firstCategory,
   page,
   products,
 }: TopPageComponentProps): JSX.Element => {
+  const [{ products: sortedProducts, sort }, dispatchSort] = React.useReducer(
+    sortReducer,
+    { products, sort: SortEnum.Rating }
+  );
+
+  const setSort = (sort: SortEnum): void => {
+    dispatchSort({ type: sort });
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -24,10 +35,12 @@ const TopPageComponent = ({
             {products.length}
           </Badge>
         )}
-        <span>Сортировка</span>
+
+        <Sort sort={sort} setSort={setSort} />
       </div>
       <div>
-        {products && products.map((p) => <div key={p._id}>{p.title}</div>)}
+        {sortedProducts &&
+          sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
       </div>
       <div className={styles.hhTitle}>
         <HeadTag tag="h2">Вакансии - {page.category}</HeadTag>
