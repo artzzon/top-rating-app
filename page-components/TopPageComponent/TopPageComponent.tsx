@@ -4,8 +4,7 @@ import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 import HeadTag from "@/components/HeadTag/HeadTag";
 import Badge from "@/components/Badge/Badge";
-import Head from "next/head";
-import { Card } from "@/components/Card/Card";
+import parse from "html-react-parser";
 import HhData from "@/components/HhData/HhData";
 import { TopLevelCategory } from "@/interfaces/page.interface";
 import Advantages from "@/components/Advantages/Advantages";
@@ -45,7 +44,7 @@ const TopPageComponent = ({
           <Advantages advantages={page.advantages} />
         </>
       )}
-      {page.seoText && <ParagraphTag>{page.seoText}</ParagraphTag>}
+      {page.seoText && <div className={styles.seo}>{parse(page.seoText)}</div>}
       <HeadTag tag="h2">Получаемые навыки</HeadTag>
       {page.tags.map((t) => (
         <Badge key={t} color="primary">
