@@ -9,6 +9,7 @@ import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { GetStaticProps } from "next";
 import Input from "@/components/Input/Input";
+import Textarea from "@/components/Textarea/Textarea";
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   const [rating, setRating] = React.useState<number>(4);
@@ -16,6 +17,7 @@ function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   return (
     <>
       <Input placeholder="Поиск..." />
+      <Textarea placeholder="Комментарий..." />
       {/* <HeadTag tag="h1">Главная</HeadTag>
       <Button appearance="primary" arrow="right">
         Кнопка
