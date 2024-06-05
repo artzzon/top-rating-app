@@ -16,8 +16,6 @@ function Home({ menu, firstCategory }: HomeProps): JSX.Element {
 
   return (
     <>
-      <Input placeholder="Поиск..." />
-      <Textarea placeholder="Комментарий..." />
       {/* <HeadTag tag="h1">Главная</HeadTag>
       <Button appearance="primary" arrow="right">
         Кнопка
