@@ -8,12 +8,14 @@ import { withLayout } from "@/layout/Layout";
 import axios from "axios";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { GetStaticProps } from "next";
+import Input from "@/components/Input/Input";
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   const [rating, setRating] = React.useState<number>(4);
-  console.log(firstCategory);
+
   return (
     <>
+      <Input placeholder="Поиск..." />
       {/* <HeadTag tag="h1">Главная</HeadTag>
       <Button appearance="primary" arrow="right">
         Кнопка
