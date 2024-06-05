@@ -10,6 +10,7 @@ const Button = ({
   appearance,
   children,
   arrow = "none",
+  className,
   ...props
 }: ButtonProps): JSX.Element => {
   return (
