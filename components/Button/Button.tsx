@@ -15,7 +15,7 @@ const Button = ({
 }: ButtonProps): JSX.Element => {
   return (
     <button
-      className={cn(styles.button, {
+      className={cn(styles.button, className, {
         [styles.primary]: appearance === "primary",
         [styles.transparent]: appearance === "transparent",
       })}
