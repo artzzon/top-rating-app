@@ -9,11 +9,12 @@ const Badge = ({
   color = "transparent",
   href,
   size = "small",
+  className,
   ...props
 }: BadgeProps): JSX.Element => {
   return (
     <div
-      className={cn(styles.badge, {
+      className={cn(styles.badge, className, {
         [styles.small]: size === "small",
         [styles.medium]: size === "medium",
         [styles.transparent]: color === "transparent",
